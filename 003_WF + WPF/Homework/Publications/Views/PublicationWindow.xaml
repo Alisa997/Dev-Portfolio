@@ -1,0 +1,107 @@
+﻿<Window x:Class="Publications.Views.PublicationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Publications.Views"
+        xmlns:models="clr-namespace:Homework.Models"
+        mc:Ignorable="d"
+        Title="PublicationWindow" 
+        Height="400" Width="400"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        ShowInTaskbar="False" 
+        FontFamily="Verdana">
+
+    <Window.Resources>
+        <models:Subscriber x:Key="Subscriber" 
+                           FullName="Ivanov I.I."
+                           Street="Sadovaya St."
+                           Building ="121a"
+                           Flat="23"
+                           Title="Izvestia"
+                           PubType="newspaper"
+                           DateStart="1.1.2022"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="155"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Subscriber Data:" BorderThickness="2" BorderBrush="DarkRed" Margin="5">
+            <Grid Margin="10" DataContext="{StaticResource Subscriber}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Full Name:" Margin="5"/>
+                    <TextBlock Text="Street:" Margin="5"/>
+                    <TextBlock Text="Building Number:" Margin="5"/>
+                    <TextBlock Text="Apartment Number:" Margin="5"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column ="1" Orientation="Vertical">
+                    <TextBox Margin="5" Name="TbxFullName" Text="{Binding FullName, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                    <TextBox Margin="5" Name="TbxStreet" Text="{Binding Street, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                    <TextBox Margin="5" Name="TbxBuilding" Text="{Binding Building, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                    <TextBox Margin="5" Name="TbxFlat" PreviewTextInput="TextBox_PreviewTextInput" Text="{Binding Flat, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row ="1" Header="Subscription Data:" BorderThickness="2" BorderBrush="DarkSlateBlue" Margin="5">
+            <Grid DataContext="{StaticResource Subscriber}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Publication Name:" Margin="5"/>
+                    <TextBlock Text="Publication Type:" Margin="5"/>
+                    <TextBlock Text="Start Date:" Margin="5 18 5 10"/>
+                    <TextBlock Text="Duration:" Margin="5"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column ="1" Orientation="Vertical" Margin="5">
+                    <TextBox Margin="0 5" Name="TbxTitle" Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                    <TextBox Margin="0 5" Name="TbxPubType" Text="{Binding PubType, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                    <DatePicker Name="DpDateStart" Margin="0 5" SelectedDateFormat="Long" SelectedDate="{Binding DateStart, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                    <ComboBox Name ="CmbDuration" Text="{Binding Duration, Mode=TwoWay, UpdateSourceTrigger= PropertyChanged}"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- buttons -->
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Background="DarkSlateBlue" Foreground="White"
+                    Name ="BtnOK"
+                    Margin="0 0 5 0"
+                    Height="25"
+                    Width="100"
+                    Content="Add"
+                    Click="Add_Click"
+                    IsCancel="false"
+                    IsDefault="True"
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"/>
+
+            <Button Background="DarkRed" Foreground="White"
+                    Margin="5 0"
+                    Height="25"
+                    Width="100"
+                    Content="Cancel"
+                    IsCancel="true"
+                    IsDefault="True"
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"/>
+        </StackPanel>
+    </Grid>
+</Window>

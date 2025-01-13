@@ -1,0 +1,493 @@
+﻿<Window x:Class="Homework.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Homework.Views"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Subscriptions to Periodical Publications" 
+        Height="550" 
+        Width="990" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        ShowInTaskbar="False" 
+        FontFamily="Verdana">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Menu -->
+            <RowDefinition Height="30"/>
+
+            <!-- Toolbar -->
+            <RowDefinition Height="42"/>
+
+            <!-- Workspace -->
+            <RowDefinition Height="*"/>
+
+            <!-- Status Bar -->
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <!-- Application Menu - at the top of the window -->
+        <Menu Grid.Row="0" Grid.Column="0" Height="30" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"
+              FontFamily="Verdana" FontSize="14">
+            <!--File-->
+            <MenuItem Header="File">
+                <MenuItem Header="Open..." Click="Open_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/open_folder.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Save" Click="Save_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/folder_blue.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Save As..." Click="SaveAs_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/save_as.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator/>
+                <MenuItem Header="About..." Click="About_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/help.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!--Exit-->
+                <MenuItem Header="Exit" Click="Exit_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/door_out.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <!--Subscriptions-->
+            <MenuItem Header="Subscriptions">
+                <MenuItem Header="New Data" Click="New_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/new.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Add..." Click="AddTelevision_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/add.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Edit..."  Click="EditPublication_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/edit_mx_entry.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Delete" Click="DeletePublication_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/delete.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <!--Sorting-->
+            <MenuItem Header="Sorting">
+                <MenuItem Header="by publication index" Click="OrderByIndex_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_number.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="by subscriber's address" Click="OrderByAddress_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_asc_az.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="by descending subscription duration" Click="OrderByDurationDesc_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_number_descending.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="by publication type" Click="OrderByPubType_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_alphabel_column.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <!--Selection-->
+            <MenuItem Header="Selection">
+                <!--by publication type-->
+                <MenuItem Header="by publication type" Click="SelectPubType_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/name.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--by subscription duration-->
+                <MenuItem Header="by subscription duration" Click="SelectDuration_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Select.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--by subscriber-->
+                <MenuItem Header="by subscriber" Click="SelectFullNames_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Owner.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!--by publication title-->
+                <MenuItem Header="by publication title" Click="SelectTitle_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/name.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!-- ToolBar Container-->
+        <ToolBarTray MinHeight="42"  Grid.Row="1" Orientation="Horizontal" Background="MintCream">
+            <!-- ToolBar -->
+            <ToolBar Background="MintCream" Width="989">
+                <Button Click="Open_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Open...</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/open_folder.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="Save_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Save</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/folder_blue.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="SaveAs_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Save As...</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/save_as.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Separator/>
+                <Button Click="New_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Create new data</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/new.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Separator/>
+
+                <!--Subscriptions-->
+                <Button Click="DeletePublication_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Delete</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/delete.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="AddTelevision_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Add...</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/add.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="EditPublication_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Edit...</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/edit_mx_entry.png"/>
+                    </Button.Content>
+                </Button>
+                <Separator/>
+
+                <!--Sorting-->
+                <Button Click="OrderByIndex_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by publication index</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_number.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="OrderByAddress_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by subscriber's address</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_asc_az.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="OrderByDurationDesc_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by descending subscription duration</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_number_descending.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="OrderByPubType_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by publication type</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_alphabel_column.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Separator/>
+                <!--Selection-->
+                <Button Click="SelectPubType_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Subscriptions by publication type</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/name.png" Height="32" Width="32"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="SelectDuration_Command" Height="34" Width="33">
+                    <Button.ToolTip>
+                        <ToolTip>Subscriptions by subscription duration</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/Select.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="SelectFullNames_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Subscriptions by subscriber</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/Owner.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="SelectTitle_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Subscriptions by publication title</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/name.png" Height="32" Width="32"/>
+                    </Button.Content>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0 0 0 15" Grid.Row="2" >
+            <!-- Example of a complex tab structure. Separately defining the header - TabItem.Header, 
+             separately setting the content of the tab - TabItem.Content -->
+            <TabControl Name="TbcPublications">
+                <!--first tab-->
+                <TabItem Name="MainTab">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Height="10" Width="10" Fill="DarkSlateBlue"/>
+                            <TextBlock Margin="3">Subscriptions to Periodical Publications</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+
+                    <TabItem.Content>
+                        <!-- List of televisions -->
+                        <DataGrid Name="DgvPublications" 
+                                  AutoGenerateColumns="False"
+                                  Margin="10 3 10 30"
+                                  Height="360"
+                                  IsReadOnly="True"
+                                  HorizontalContentAlignment="Center"
+                                  FontSize="14"
+                                  CanUserAddRows="True"
+                                  AllowDrop="True"
+                                  Drop="Dgv_Drop">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Index" Binding="{Binding PubIndex}" Width="100"/>
+                                <DataGridTextColumn Header="Subscriber" Binding="{Binding FullName}" Width="250"/>
+                                <DataGridTextColumn Header="Publication" Binding="{Binding Title}" Width="480"/>
+                                <DataGridTextColumn Header="Street" Binding="{Binding Street}" Width="110"/>
+                            </DataGrid.Columns>
+
+                            <DataGrid.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="2" TextBlock.Foreground="DarkSlateBlue" TextBlock.FontWeight="Bold">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscriber's Address: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding Address}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Publication Type: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding PubType}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscription Start Date: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding DateStart}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscription Duration: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding Duration}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+
+                            <DataGrid.ContextMenu>
+                                <ContextMenu x:Name="CmGroupBox" FontSize="14">
+                                    <MenuItem Header="New Data" Click="New_Command">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Images/new.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Add..." Click="AddTelevision_Command">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Images/add.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Edit..."  Click="EditPublication_Command">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Images/edit_mx_entry.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <Separator/>
+                                    <MenuItem Header="Delete" Click="DeletePublication_Command">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Images/delete.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <Separator/>
+                                    <!--Exit-->
+                                    <MenuItem Header="Exit" Foreground="DarkRed" Click="Exit_Click">
+                                    </MenuItem>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+
+                <!--second tab-->
+                <TabItem Name="SortedTab">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Height="10" Width="10" Fill="DarkSlateBlue"/>
+                            <TextBlock Margin="3">Sorting</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+
+                    <TabItem.Content>
+                        <!-- List of televisions -->
+                        <DataGrid Name="DgvSorted" 
+                                  IsReadOnly="True"
+                                  AutoGenerateColumns="False"
+                                  Margin="10 3 10 30"
+                                  Height="360"
+                                  HorizontalContentAlignment="Center"
+                                  FontSize="14">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Index" Binding="{Binding PubIndex}" Width="100"/>
+                                <DataGridTextColumn Header="Subscriber" Binding="{Binding FullName}" Width="250"/>
+                                <DataGridTextColumn Header="Publication" Binding="{Binding Title}" Width="480"/>
+                                <DataGridTextColumn Header="Street" Binding="{Binding Street}" Width="110"/>
+                            </DataGrid.Columns>
+
+                            <DataGrid.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="2" TextBlock.Foreground="DarkSlateBlue" TextBlock.FontWeight="Bold">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscriber's Address: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding Address}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Publication Type: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding PubType}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscription Start Date: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding DateStart}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscription Duration: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding Duration}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+
+                <!--third tab-->
+                <TabItem Name="SelectedTab">
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Height="10" Width="10" Fill="DarkSlateBlue"/>
+                            <TextBlock Margin="3">Selection</TextBlock>
+                        </StackPanel>
+                    </TabItem.Header>
+
+                    <TabItem.Content>
+                        <!-- List of televisions -->
+                        <DataGrid Name="DgvSelected" 
+                                  IsReadOnly="True"
+                                  AutoGenerateColumns="False"
+                                  Margin="10 3 10 30"
+                                  Height="360"
+                                  HorizontalContentAlignment="Center"
+                                  FontSize="14">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Index" Binding="{Binding PubIndex}" Width="100"/>
+                                <DataGridTextColumn Header="Subscriber" Binding="{Binding FullName}" Width="250"/>
+                                <DataGridTextColumn Header="Publication" Binding="{Binding Title}" Width="480"/>
+                                <DataGridTextColumn Header="Street" Binding="{Binding Street}" Width="110"/>
+                            </DataGrid.Columns>
+
+                            <DataGrid.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="2" TextBlock.Foreground="DarkSlateBlue" TextBlock.FontWeight="Bold">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscriber's Address: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding Address}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Publication Type: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding PubType}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscription Start Date: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding DateStart}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Subscription Duration: " FontWeight="Normal"/>
+                                            <TextBlock Text="{Binding Duration}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="3" Background="DarkSlateBlue" Foreground="Azure" Padding="0">
+            <TextBlock Margin="10,0,0,0" Name="TbStatusBar" Width="450" Height="26" FontSize="16"
+                       MaxWidth="450"></TextBlock>
+        </StatusBar>
+    </Grid>
+</Window>

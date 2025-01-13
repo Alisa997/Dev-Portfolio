@@ -1,0 +1,70 @@
+﻿<Window x:Class="Homework.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework.Views"
+        mc:Ignorable="d"
+        Title="About the Program" 
+        Height="440" 
+        Width="600" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        ShowInTaskbar="False" 
+        FontFamily="Verdana">
+    <StackPanel Orientation="Vertical">
+
+        <ScrollViewer Height="360">
+            <!-- To enable scrolling, you cannot explicitly set the width or height of the field -->
+            <TextBlock Margin="5"
+                       Padding="15"
+                       ScrollViewer.CanContentScroll="True" 
+                       TextWrapping="WrapWithOverflow"
+                       TextAlignment="Left"
+                       SnapsToDevicePixels="True">
+                <Bold>Task 2.</Bold><LineBreak/><LineBreak/> 
+                Develop a Windows Presentation Foundation (WPF) application layout for managing subscriptions to periodical publications. You need to store the subscriber's last name and initials, their address (street, house, and apartment), publication title, publication type, publication index, subscription start date, and subscription period (all fields in one class). Use dependency properties.<LineBreak/><LineBreak/> 
+                • In the main window, display subscription data in a DataGrid on a separate tab – the subscriber's last name and initials, publication index and title, and the subscriber's street address.<LineBreak/>
+                • In the detailed information for the selected subscription, display all information about the subscriber and the publication.<LineBreak/> 
+                • Use cell templates to display subscription data.<LineBreak/> 
+                • Use a separate window to add and edit subscriptions – subscriptions are for 1, 3, 6, or 12 months.<LineBreak/> 
+                • Store data using a JSON file, and select files using the standard dialog.<LineBreak/><LineBreak/> 
+                Use context menus, main menus, toolbars, tabs, and other studied user interface elements.<LineBreak/><LineBreak/> 
+                Implement data addition and editing in a separate window with data binding to interface elements using dependency properties.<LineBreak/><LineBreak/> 
+                Implement sorting of the collection copy and display this copy in a separate tab in the DataGrid for the following queries:<LineBreak/> 
+                • Sorting by publication index<LineBreak/> 
+                • Sorting by subscriber address<LineBreak/> 
+                • Sorting by descending subscription period<LineBreak/> 
+                • Sorting by publication type<LineBreak/><LineBreak/> 
+                Implement data filtering for subscriptions and display the filtered data in a separate tab in the DataGrid:<LineBreak/> 
+                • Subscriptions by selected publication type<LineBreak/> 
+                • Subscriptions by selected period<LineBreak/> 
+                • Subscriptions by selected full name and initials of the subscriber<LineBreak/> 
+                • Subscriptions by selected publication title
+            </TextBlock>
+        </ScrollViewer>
+
+        <!-- Window management -->
+        <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right"
+                    Margin="0, 0, 10, 0">
+            <TextBox Margin="5"
+                       Height="25"
+                       IsReadOnly="True"
+                       IsTabStop="False"
+                       VerticalContentAlignment="Center"
+                       BorderThickness="0">
+                Dubina Alisa, 2022
+            </TextBox>
+            <Button Background="DarkSlateBlue" Foreground="White"
+                    Margin="5 0"
+                    Height="25"
+                    Width="120"
+                    Content="OK" 
+                    Click="Ok_Click"
+                    IsDefault="True"
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"/>
+        </StackPanel>
+    </StackPanel>
+
+</Window>

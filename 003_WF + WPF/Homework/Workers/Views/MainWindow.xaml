@@ -1,0 +1,351 @@
+﻿<Window x:Class="Workers.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Workers"
+        mc:Ignorable="d"
+        Title="Task for 31.01.2022"
+        Height="550"
+        Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False"
+        FontFamily="Verdana">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Menu -->
+            <RowDefinition Height="30"/>
+
+            <!-- Toolbar -->
+            <RowDefinition Height="42"/>
+
+            <!-- Working Area -->
+            <RowDefinition Height="*"/>
+
+            <!-- Status Bar -->
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <!-- Application Menu - at the top of the window -->
+        <Menu Grid.Row="0" Grid.Column="0" Height="30" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"
+              FontFamily="Verdana" FontSize="14">
+            <!-- File -->
+            <MenuItem Header="File">
+                <MenuItem Header="Open..." Click="Open_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/open_folder.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Save" Click="Save_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/folder_blue.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Save As..." Click="SaveAs_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/save_as.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator/>
+                <!-- Exit -->
+                <MenuItem Header="Exit" Click="Exit_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/door_out.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <!-- Workers -->
+            <MenuItem Header="Workers">
+                <!-- New Data -->
+                <MenuItem Header="New Data" Click="New_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/new.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator/>
+                <!-- Add -->
+                <MenuItem Header="Add" Click="AddWorker_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/add.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!-- Edit -->
+                <MenuItem Header="Edit" Click="EditWorker_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/edit_mx_entry.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator/>
+                <!-- Delete -->
+                <MenuItem Header="Delete" Click="DeleteWorker_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/delete.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <!-- Sorting -->
+            <MenuItem Header="Sort">
+                <MenuItem Header="By Employee Name" Click="OrderByName_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_asc_az.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="By Employee Surname" Click="OrderBySurname_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_alphabel_column.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="By Employee Patronymic" Click="OrderByPatronymic_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_alphabel.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="By Descending Salary" Click="OrderBySalaryDesc_Command">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/sort_number_descending.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!-- Container for Toolbar -->
+        <ToolBarTray MinHeight="42" Grid.Row="1" Orientation="Horizontal" Background="MintCream">
+            <!-- Toolbar -->
+            <ToolBar Background="MintCream" Width="989">
+                <Button Click="Open_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Open...</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/open_folder.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="Save_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Save</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/folder_blue.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Click="SaveAs_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Save As...</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/save_as.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Separator/>
+                <Button Click="New_Command">
+                    <Image Source="/Images/new.png"/>
+                    <Button.ToolTip>
+                        <ToolTip>Generate New Data</ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
+                <Separator/>
+                <!-- Add Worker -->
+                <Button Click="AddWorker_Command">
+                    <Image Source="/Images/add.png"/>
+                    <Button.ToolTip>
+                        <ToolTip>Add Worker</ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
+                <!-- Edit Worker -->
+                <Button Click="EditWorker_Command">
+                    <Image Source="/Images/edit_mx_entry.png"/>
+                    <Button.ToolTip>
+                        <ToolTip>Edit Worker</ToolTip>
+                    </Button.ToolTip>
+                </Button>
+
+                <!-- Delete Worker -->
+                <Button Click="DeleteWorker_Command">
+                    <Image Source="/Images/delete.png"/>
+                    <Button.ToolTip>
+                        <ToolTip>Delete Worker</ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Separator/>
+                <Button Click="OrderByName_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by Employee Name</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_asc_az.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="OrderBySurname_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by Employee Surname</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_alphabel_column.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="OrderByPatronymic_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by Employee Patronymic</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_alphabel.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Click="OrderBySalaryDesc_Command">
+                    <Button.ToolTip>
+                        <ToolTip>Sort by Descending Salary</ToolTip>
+                    </Button.ToolTip>
+                    <Button.Content>
+                        <Image Source="/Images/sort_number_descending.png"/>
+                    </Button.Content>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0 0 0 15" Grid.Row="2">
+            <!-- Employee List -->
+            <TextBox Name="TbxHeader" Grid.Row="0"
+                     VerticalContentAlignment="Bottom"
+                     HorizontalContentAlignment="Left"
+                     BorderThickness="0"
+                     Margin="15 15 15 0"
+                     IsReadOnly="True"
+                     FontSize="15">
+                Employee List:
+            </TextBox>
+
+            <DataGrid Name="DgvWorkers"
+                      AutoGenerateColumns="False"
+                      Margin="10 3 10 30"
+                      Height="360"
+                      HorizontalContentAlignment="Center"
+                      FontSize="14"
+                      IsReadOnly="True"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      AllowDrop="True"
+                      Drop="Dgv_Drop">
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="300" Header="Full Name">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5" Orientation="Vertical">
+                                    <TextBlock Text="{Binding Surname}" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Name}" FontStyle="Italic"/>
+                                    <TextBlock Text="{Binding Patronymic}" FontStyle="Italic"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Age -->
+                    <DataGridTemplateColumn Header="Age" Width="110">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Age}"
+                                         Padding="0 0 15 0"
+                                         BorderThickness="0"
+                                         Background="Transparent"
+                                         IsReadOnly="True"
+                                         TextAlignment="Right" VerticalContentAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Salary -->
+                    <DataGridTemplateColumn Header="Salary" Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Salary, StringFormat={}{0:n2} &#36;}"
+                                         Padding="0 0 5 0"
+                                         BorderThickness="0"
+                                         IsReadOnly="True"
+                                         Background="Transparent"
+                                         TextAlignment="Right" VerticalContentAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- City of Residence -->
+                    <DataGridTemplateColumn Header="City of Residence">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding City}"
+                                         Padding="0 0 5 0"
+                                         BorderThickness="0"
+                                         Background="Transparent"
+                                         IsReadOnly="True"
+                                         TextAlignment="Right" VerticalContentAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+                <DataGrid.ContextMenu>
+                    <ContextMenu x:Name="CmGroupBox" FontSize="14">
+                        <!-- New Data -->
+                        <MenuItem Header="New Data" Click="New_Command">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/new.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <Separator/>
+                        <!-- Add -->
+                        <MenuItem Header="Add" Click="AddWorker_Command">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/add.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <!-- Edit -->
+                        <MenuItem Header="Edit" Click="EditWorker_Command">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/edit_mx_entry.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <Separator/>
+                        <!-- Delete -->
+                        <MenuItem Header="Delete" Click="DeleteWorker_Command">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/delete.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <Separator/>
+                        <!-- Exit -->
+                        <MenuItem Header="Exit" Foreground="DarkRed" Click="Exit_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/door_out.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+
+        </StackPanel>
+
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="3" Background="DarkSlateBlue" Foreground="Azure" Padding="0">
+            <TextBlock Margin="10,0,0,0" Name="TbStatusBar" Width="450" Height="26" FontSize="16"
+                       MaxWidth="450"></TextBlock>
+        </StatusBar>
+    </Grid>
+</Window>
