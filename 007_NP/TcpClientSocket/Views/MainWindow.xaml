@@ -1,0 +1,116 @@
+﻿<Window x:Class="TcpClientSocket.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TcpClientSocket"
+        mc:Ignorable="d"
+        Title="Task on 28.03.2022" Height="450" Width="650"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        FontFamily="Verdana">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Menu -->
+            <RowDefinition Height="25"/>
+
+            <!-- Tool Panel -->
+            <RowDefinition Height="28"/>
+
+            <!-- Work Area -->
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+
+            <!-- Status Bar -->
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <!-- Application Menu - in the upper part of the window -->
+        <Menu Grid.Row="0" Grid.Column="0" Height="30" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"
+              FontFamily="Verdana" FontSize="14">
+            <!-- File -->
+            <MenuItem Header="File">
+                <!-- Exit -->
+                <MenuItem Header="Exit" Click="Exit_Command"/>
+            </MenuItem>
+            <!-- Commands -->
+            <MenuItem Header="Commands">
+                <!-- Date -->
+                <MenuItem Header="date" Click="Date_Command"/>
+                <!-- Host Name -->
+                <MenuItem Header="host_name" Click="HostName_Command"/>
+                <!-- pwd -->
+                <MenuItem Header="pwd" Click="Pwd_Command"/>
+                <!-- list -->
+                <MenuItem Header="list" Click="List_Command"/>
+                <!-- mul -->
+                <MenuItem Header="mul (random numbers)" Click="Mul_Command"/>
+                <!-- sum -->
+                <MenuItem Header="sum (random numbers)" Click="Sum_Command"/>
+                <!-- solve -->
+                <MenuItem Header="solve (random numbers)" Click="Solve_Command"/>
+                <!-- rename -->
+                <MenuItem Header="rename" Click="MenuItem_Click"/>
+                <!-- upload -->
+                <MenuItem Header="upload" Click="MenuItem_Click"/>
+                <!-- download -->
+                <MenuItem Header="download" Click="MenuItem_Click"/>
+                <!-- delete -->
+                <MenuItem Header="delete" Click="MenuItem_Click"/>
+                <!-- shutdown -->
+                <MenuItem Header="shutdown" Click="Shutdown_Command"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Tool Panel Container -->
+        <ToolBarTray Grid.Row="1" Orientation="Horizontal" Background="White">
+            <!-- Tool Bar -->
+            <ToolBar Background="DarkSlateBlue" Width="640">
+                <Button Click="Date_Command" Content="date" ToolTip="Date and time on the server" Background="DarkMagenta" Foreground="White" FontWeight="Bold"/>
+                <Button Click="HostName_Command" Content="host_name" ToolTip="The name of the computer the server is running on" Background="DarkMagenta" Foreground="White" FontWeight="Bold"/>
+                <Button Click="Pwd_Command" Content="pwd" ToolTip="Full name of the App_Files folder" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Click="List_Command" Content="list" ToolTip="List of file names stored on the server in the App_Files folder" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Click="Mul_Command" Content="mul" ToolTip="Multiplication of random numbers" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Click="Sum_Command" Content="sum" ToolTip="Addition of random numbers" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Click="Solve_Command" Content="solve" ToolTip="Calculation of quadratic equation roots" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Tag="rename" Click="Button_Command" Content="rename" ToolTip="Rename file" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Tag="upload" Click="Button_Command" Content="upload" ToolTip="Upload file to the server" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Tag="download" Click="Button_Command" Content="download" ToolTip="Download file from the server" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Tag="delete" Click="Button_Command" Content="delete" ToolTip="Delete file on the server" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+                <Button Click="Shutdown_Command" Content="shutdown" ToolTip="Shutdown server" Background="DarkMagenta" Foreground ="White" FontWeight="Bold"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <GroupBox Grid.Row="2" Header="Enter Command:" BorderBrush="DarkSlateBlue" Margin="5" BorderThickness="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Grid.Row="1" Grid.Column="1"
+                 Margin="5 8"
+                 Name="TbxSendData" 
+                 Width="450"
+                 Height="Auto"/>
+                <Button Background="DarkMagenta" Foreground="White"
+                    Margin="5 0"
+                    Name="BtnSend"
+                    Height="25"
+                    Width="145"
+                    Content="Ok"
+                    IsDefault="True"
+                    Click="Send_Command"
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="3" Header="Receiving Data:" BorderBrush="DarkSlateBlue" Margin="5 0 5 5" BorderThickness="2">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="5 8" Name="TbxReceivedData" TextWrapping="Wrap"/>
+            </ScrollViewer>
+        </GroupBox>
+
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="4" Background="DarkSlateBlue" Foreground="Azure" Padding="0">
+            <TextBlock Margin="10,0,0,0" Name="TbStatusBar" Width="580" Height="26" FontSize="12"
+                       MaxWidth="800"></TextBlock>
+        </StatusBar>
+    </Grid>
+</Window>

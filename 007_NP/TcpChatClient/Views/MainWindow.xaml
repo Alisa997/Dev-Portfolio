@@ -1,0 +1,85 @@
+﻿<Window x:Class="TcpChatClient.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TcpChatClient"
+        mc:Ignorable="d"
+        Title="Task for 28.03.2022" Height="450" Width="360"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        FontFamily="Verdana"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Menu -->
+            <RowDefinition Height="25"/>
+
+            <!-- Tool Panel -->
+            <RowDefinition Height="28"/>
+
+            <!-- Work Area -->
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+
+            <!-- Status Bar -->
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <!-- Application Menu - at the top of the window -->
+        <Menu Grid.Row="0" Grid.Column="0" Height="30" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"
+              FontFamily="Verdana" FontSize="14">
+            <!--File-->
+            <MenuItem Header="File">
+                <!--Exit-->
+                <MenuItem Header="Exit" Click="Exit_Command"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Container for Tool Panel-->
+        <ToolBarTray Grid.Row="1" Orientation="Horizontal" Background="White">
+            <!-- Tool Panel -->
+            <ToolBar Background="DarkSlateBlue" Width="640">
+                <Button Tag = "@list"   Content="@list"  Click="BtnCommand" ToolTip="List of participants" Background="DarkMagenta" Foreground="White" FontWeight="Bold"/>
+                <Button Tag = "@rename" Content="@rename" Click="Rename_Command" ToolTip="List of participants" Background="DarkMagenta" Foreground="White" FontWeight="Bold"/>
+                <Button Tag = "@clear"  Content="@clear" Click="BtnCommand" ToolTip="Clear chat" Background="DarkMagenta" Foreground="White" FontWeight="Bold"/>
+                <Button Tag = "@exit"   Content="@exit"  Click="BtnCommand" ToolTip="Exit" Background="DarkMagenta" Foreground="White" FontWeight="Bold"/>
+                </ToolBar>
+        </ToolBarTray>
+
+        <GroupBox Grid.Row="2" Header="Receiving data:" BorderBrush="DarkSlateBlue" Margin="5 0 5 5" BorderThickness="2">
+            <TextBox Grid.Row="1" 
+                     VerticalScrollBarVisibility="Auto" 
+                     Grid.Column="1" Margin="5 8" 
+                     Name="TbxReceivedData" 
+                     TextWrapping="Wrap" 
+                     TextChanged="TextBox_TextChanged"
+                     FontFamily="Consolas"/>
+        </GroupBox>
+
+        <GroupBox Grid.Row="3" Header="Message input:" BorderBrush="DarkSlateBlue" Margin="5" BorderThickness="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Grid.Row="1" Grid.Column="1"
+                 Margin="5 8"
+                 Name="TbxSendData" 
+                 Width="230"
+                 Height="Auto"/>
+                <Button Background="DarkMagenta" Foreground="White"
+                    Margin="5 0"
+                    Name="BtnSend"
+                    Height="25"
+                    Width="75"
+                    Content="Send"
+                    IsDefault="True"
+                    Click="Send_Command"
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="4" Background="DarkSlateBlue" Foreground="Azure" Padding="0">
+            <TextBlock Margin="10,0,0,0" Name="TbStatusBar" Width="580" Height="26" FontSize="12"
+                       MaxWidth="800"></TextBlock>
+        </StatusBar>
+    </Grid>
+</Window>
