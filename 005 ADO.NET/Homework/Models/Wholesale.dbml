@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Wholesale" Class="WholesaleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\App_Data\Wholesale.mdf;Integrated Security=True" SettingsObjectName="Homework.Properties.Settings" SettingsPropertyName="WholesaleConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Units" Member="Units">
+    <Type Name="Units">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Short" Type="System.String" DbType="NVarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Long" Type="System.String" DbType="NVarChar(26) NOT NULL" CanBeNull="false" />
+      <Association Name="Units_Purchases" Member="Purchases" ThisKey="Id" OtherKey="IdUnit" Type="Purchases" />
+      <Association Name="Units_Sales" Member="Sales" ThisKey="Id" OtherKey="IdUnit" Type="Sales" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goods" Member="Goods">
+    <Type Name="Goods">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Association Name="Goods_Purchases" Member="Purchases" ThisKey="Id" OtherKey="IdItem" Type="Purchases" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Persons" Member="Persons">
+    <Type Name="Persons">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Patronymic" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Passport" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="Persons_Sellers" Member="Sellers" ThisKey="Id" OtherKey="IdPerson" Type="Sellers" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Purchases" Member="Purchases">
+    <Type Name="Purchases">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdItem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdUnit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PurchaseDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Purchases_Sales" Member="Sales" ThisKey="Id" OtherKey="IdPurchase" Type="Sales" />
+      <Association Name="Goods_Purchases" Member="Goods" ThisKey="IdItem" OtherKey="Id" Type="Goods" IsForeignKey="true" />
+      <Association Name="Units_Purchases" Member="Units" ThisKey="IdUnit" OtherKey="Id" Type="Units" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sales" Member="Sales">
+    <Type Name="Sales">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPurchase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdUnit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdSeller" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SaleDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Purchases_Sales" Member="Purchases" ThisKey="IdPurchase" OtherKey="Id" Type="Purchases" IsForeignKey="true" />
+      <Association Name="Units_Sales" Member="Units" ThisKey="IdUnit" OtherKey="Id" Type="Units" IsForeignKey="true" />
+      <Association Name="Sellers_Sales" Member="Sellers" ThisKey="IdSeller" OtherKey="Id" Type="Sellers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sellers" Member="Sellers">
+    <Type Name="Sellers">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPerson" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Interest" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Sellers_Sales" Member="Sales" ThisKey="Id" OtherKey="IdSeller" Type="Sales" />
+      <Association Name="Persons_Sellers" Member="Persons" ThisKey="IdPerson" OtherKey="Id" Type="Persons" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
