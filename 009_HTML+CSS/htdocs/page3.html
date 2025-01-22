@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Third Page</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page3.css">
+    <link rel="shortcut icon" href="../img/home.png" type="image/x-icon"/>
+</head>
+<body>
+<!-- Header -->
+<header id="C0">
+    <h1>Third Page</h1>
+</header>
+
+<!-- Page content -->
+<main>
+    <!-- Navigation panel with links to other pages -->
+    <nav>
+        <a href="../index.html">Home Page</a>
+        <a href="page1.html">First Page</a>
+        <a href="page2.html">Second Page</a>
+        <a class="current" href="page3.html">Third Page</a>
+        <a href="page4.html">Fourth Page</a>
+    </nav>
+    <section>
+        <h2>Option 21</h2>
+        <!-- First table -->
+        <table>
+            <tr style="page-break-inside:avoid">
+                <td><p><i>Database <b>"Paid Appointment in a Polyclinic"</b></i></p></td>
+            </tr>
+            <tr>
+                <td><b>Subject Area Description</b><br>
+                    Paid appointments for patients (specialist consultations) are conducted by doctors of various specialties (surgeon, therapist, cardiologist, ophthalmologist, etc.). Several doctors may have the same specialty. When registering the appointment, a payment receipt must be generated, which includes information about the patient, the doctor consulting the patient, the cost of the appointment, and the date of the appointment.<br>
+                    The patient pays a certain amount for the appointment, which is set individually for each doctor. A fixed percentage of the appointment cost is deducted for the doctor's salary. The percentage of the appointment cost for the doctor's salary is also set individually for each doctor.<br>
+                    The salary earned by the doctor for each appointment is calculated using the formula: <b>Cost of the appointment * Percentage deducted for doctor's salary</b>. From this amount, an income tax of 13% is deducted.<br></td>
+            </tr>
+            <tr>
+                <td><b><i>The database should include tables DOCTORS, PATIENTS, APPOINTMENT containing the following information:</i></b></td>
+            </tr>
+            <tr>
+                <td>Doctor's surname</td>
+            </tr>
+            <tr>
+                <td>Doctor's first name</td>
+            </tr>
+            <tr>
+                <td>Doctor's patronymic</td>
+            </tr>
+            <tr>
+                <td>Doctor's specialty</td>
+            </tr>
+            <tr>
+                <td>Appointment cost</td>
+            </tr>
+            <tr>
+                <td>Percentage of appointment cost for doctor's salary</td>
+            </tr>
+            <tr>
+                <td>Patient's surname</td>
+            </tr>
+            <tr>
+                <td>Patient's first name</td>
+            </tr>
+            <tr>
+                <td>Patient's patronymic</td>
+            </tr>
+            <tr>
+                <td>Patient's date of birth</td>
+            </tr>
+            <tr>
+                <td>Patient's address</td>
+            </tr>
+            <tr>
+                <td>Appointment date</td>
+            </tr>
+            <tr>
+                <td><p class="center">TASK TO BE COMPLETED</p>
+                    <ol>
+                        <li>Determine the composition of the fields in the base tables.</li>
+                        <li>Define the <b>properties</b> of each field in the table.</li>
+                        <li>In each table, define the <b>key field</b>.</li>
+                        <li>Determine the <b>types of relationships between the tables</b> in the database.</li>
+                        <li><b>Establish relationships</b> between the tables.</li>
+                        <li>Fill the tables with data. Each table must contain <b>at least 10 records</b>.</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+
+        <p class="text">
+            In addition to the base tables, the database should include the following objects:
+        </p>
+
+        <!-- Second table -->
+        <table>
+        <tr>
+            <th colspan="3">FORMS</th>
+        </tr>
+        <tr>
+            <th>Form Number</th>
+            <th>Form Type</th>
+            <th>Purpose of the Form</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Autoform in column</td>
+            <td>Displays data from the DOCTORS table</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Form with a subform</td>
+            <td>Displays data from the PATIENTS and APPOINTMENT tables</td>
+        </tr>
+        <tr>
+            <th colspan="3">QUERIES</th>
+        </tr>
+        <tr>
+            <th>Query Number</th>
+            <th>Query Type</th>
+            <th>Task Solved by Query</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Selection query</td>
+            <td>Selects patients from the PATIENTS table whose surname starts with the letter “I”</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Selection query</td>
+            <td>Selects doctors from the DOCTORS table with the specialties “surgeon” or “therapist”</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Selection query</td>
+            <td>Selects information about appointments of doctors with the specialty “therapist” from the DOCTORS, PATIENTS, and APPOINTMENT tables</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Parameter query</td>
+            <td>Selects information about doctors from the DOCTORS table with a specific value in the field <b>Cost of appointment</b>. The specific value is entered during query execution</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Parameter query</td>
+            <td>Selects information about doctors whose <b>Percentage of salary deductions</b> is within a specified range. The lower and upper bounds are specified during query execution</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Query with calculated fields</td>
+            <td>Calculates the salary of the doctor for each appointment. Includes fields <b>Doctor's surname, First name, Patronymic, Specialty, Cost of appointment, Salary</b>. Sorted by <b>Doctor's surname</b></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Final query</td>
+            <td>Performs grouping by <b>Appointment date</b>. For each date, calculates the minimum appointment cost</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Final query</td>
+            <td>Performs grouping by <b>Specialty</b>. For each specialty, calculates the maximum <b>Salary deduction percentage from appointment cost</b></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Base table creation query</td>
+            <td>Creates the PATIENTS_DATE table containing information about patients who visited the doctor on a given date</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Base table creation query</td>
+            <td>Creates a copy of the PATIENTS table named COPY_PATIENTS</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Delete query</td>
+            <td>Deletes records of patients born before 01.01.1960 from the COPY_PATIENTS table</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Update query</td>
+            <td>Increases the <b>Cost of appointment</b> by 20 percent for doctors with the specialties “therapist” or “surgeon”</td>
+        </tr>
+        <tr>
+            <th colspan="3">REPORTS</th>
+        </tr>
+        <tr>
+            <th>Report Number</th>
+            <th>Report Type</th>
+            <th>Report Purpose</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Auto-report in column</td>
+            <td>Displays all fields from the DOCTORS table</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Report created by Report Wizard</td>
+            <td>Displays fields from the DOCTORS and APPOINTMENT tables grouped by <b>Specialty</b></td>
+        </tr>
+        </table>
+
+        <a href="#C0" class="up">Back to Top &uarr;</a>
+    </section>
+</main>
+
+<!-- Developer info -->
+<footer>
+    <small>Dubina Alisa, 2022, <a href="mailto:dubinaalisa1@gmail.com">dubinaalisa1@gmail.com</a></small>
+</footer>
+</body>
+</html>

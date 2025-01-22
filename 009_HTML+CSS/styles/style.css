@@ -1,0 +1,172 @@
+/* Styles for index.html */
+html, body {
+    font-family: Calibri, sans-serif;
+    font-size: 10pt;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the top block */
+header {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    display: block;
+    background: linear-gradient(90deg, darkslateblue, steelblue, darkslateblue);
+    color: White;
+    text-align: center;
+    height: 5%;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+header h1{
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 8px;
+}
+
+/* Style for the central block */
+main{
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flexbox;
+    min-height: 90vh;
+    margin-right: 5%;
+}
+
+/* Style for the navigation panel */
+nav {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    width: 20%;
+    border-left: 10px solid darkslateblue;
+    border-top-left-radius: 50px;
+    padding: 5px;
+    z-index: 2;
+}
+nav a:link, nav a:visited {
+    font-size: 1.2rem;
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    background-color: white;
+    padding: 13px 0 13px 50px;
+    margin: 23px 35px 23px 10px;
+    border-radius: 10px;
+    box-shadow: 4px -4px 5px 0 navy,
+                -4px -4px 5px 0 navy,
+                4px 4px 5px 0 rgba(149,35,149,10),
+                -4px 4px 5px 0 rgba(149,35,149,10);
+    transition: all 500ms;
+}
+nav a:hover, nav a.current {
+    margin-left: 25px;
+    margin-right: 20px;
+    padding-left: 35px;
+    box-shadow: 4px -4px 10px 0 rgba(149,35,149,10),
+                -4px -4px 10px 0 rgba(149,35,149,10),
+                4px 4px 10px 0 navy,
+                -4px 4px 10px 0 navy;
+}
+nav a:active{
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+                -2px -2px 5px 0 rgba(0,0,0,.1),
+                2px 2px 5px 0 rgba(0,0,0,.1),
+                -2px 2px 5px 0 rgba(0,0,0,.1);
+}
+
+/* Style for the current tab */
+nav a.current {
+    box-shadow: 2px -2px 10px 0 steelblue,
+    -2px -2px 10px 0 steelblue,
+    2px 2px 10px 0 darkslateblue,
+    -2px 2px 10px 0 rgba(149,35,149,10);
+}
+section {
+    width: 80%;
+    padding-bottom: 25px;
+}
+
+/* Style for the bottom block */
+footer {
+    clear: both;
+    color: white;
+    background: linear-gradient(90deg, darkslateblue, steelblue, darkslateblue);
+    text-align: center;
+    padding: 6px;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}
+footer a{
+    color: white;
+}
+
+/* Styles for list items and paragraphs */
+ul {
+    margin: 0.8rem 2rem;
+}
+ul li, p {
+    text-align: justify;
+    font-size: 1.4rem;
+}
+p {
+    margin: 0 6rem 0.8rem 2rem;
+}
+
+/* Style for headers */
+h3, summary {
+    font-size: 1.6rem;
+    font-family: "Calibri Light", serif;
+    color: RGB(46, 116, 181);
+    margin: 1.2rem 6rem 0 2rem;
+}
+
+/* Style for the sample image */
+.sample{
+    width: 15%;
+    position: fixed;
+    border-left: 10px solid darkslateblue;
+    border-radius: 50px;
+    padding: 20px;
+    bottom: 20%;
+    z-index: 3;
+    transition: all 500ms;
+}
+.sample > img{
+    width: 90%;
+    border: 1px solid black;
+    z-index: 100;
+    transition: all 500ms;
+}
+.sample > img:hover {
+    width: 250%;
+    left: 10%;
+    box-shadow: 2px -2px 5px 0 black,
+                -2px -2px 5px 0 black,
+                2px 2px 5px 0 black,
+                -2px 2px 5px 0 black;
+}
+.sample:hover{
+    background: linear-gradient(90deg, white 20%, rgba(0,0,0,0)50%);
+}
+
+/* Style for the scroll-to-top link */
+.up{
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+                -2px -2px 5px 0 rgba(0,0,0,.1),
+                2px 2px 5px 0 rgba(0,0,0,.1),
+                -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 1.2rem;
+    float: right;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 6rem 1.3rem 2rem;
+    position: sticky;
+    bottom: 0;
+    text-decoration: none;
+}
+
+fieldset{
+    border: 1px solid gray;
+}

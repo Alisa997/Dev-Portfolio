@@ -1,0 +1,68 @@
+/* Styles for page1.html */
+/* Style for the form */
+form {
+    width: 70%;
+    margin: 2rem auto;
+}
+div {
+    margin-bottom: 1rem;
+}
+
+/* Style for labels */
+label {
+    font-size: 1.2rem;
+    padding-left: 8px;
+    color: rgba(0, 85, 85, 0.95);
+}
+h2 {
+    font-size: 2rem;
+    margin: 1rem auto 0 auto;
+    text-align: center;
+    color: rgba(0, 85, 85, 0.95);
+}
+
+/* Style for input fields, buttons */
+input, select, button, input[type=file]::file-selector-button {
+    border-radius: 13px;
+    border: none;
+    padding: 10px;
+    box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
+                -2px -2px 5px 0 rgba(0, 0, 0, .1),
+                2px 2px 5px 0 rgba(0, 0, 0, .1),
+                -2px 2px 5px 0 rgba(0, 0, 0, .1);
+}
+
+/* Style for buttons */
+button, input[type=file]::file-selector-button {
+    background: darkcyan;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+button {
+    width: 200px;
+    margin: 0;
+}
+
+/* Sizes for input fields */
+input {
+    width: 90%;
+}
+select {
+    width: 93%;
+}
+
+/* Styles for "small" input fields */
+.small, .small-file {
+    margin-right: 2%;
+    width: 25%;
+    float: left;
+    margin-bottom: 0;
+}
+.small > input {
+    height: 35px;
+}
+.small-file {
+    margin-right: 1%;
+    width: 40%;
+}

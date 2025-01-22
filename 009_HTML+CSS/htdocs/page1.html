@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Page</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page1.css">
+    <link rel="shortcut icon" href="../img/home.png" type="image/x-icon"/>
+</head>
+<body>
+<!-- Header -->
+<header id="C0">
+    <h1>First Page</h1>
+</header>
+<!-- Page content -->
+<main>
+    <!-- Navigation panel with links to other pages -->
+    <nav>
+        <a href="../index.html">Home Page</a>
+        <a class="current" href="page1.html">First Page</a>
+        <a href="page2.html">Second Page</a>
+        <a href="page3.html">Third Page</a>
+        <a href="page4.html">Fourth Page</a>
+    </nav>
+    <section>
+        <form method="post" action="#">
+            <h2>Doctor Data Entry Form</h2>
+            <!-- Surname -->
+            <div>
+                <label for="surname">Surname</label><br>
+                <input type="text" required id="surname" placeholder="Surname">
+            </div>
+
+            <!-- First Name -->
+            <div>
+                <label for="name">First Name</label><br>
+                <input type="text" required id="name" placeholder="First Name">
+            </div>
+
+            <!-- Patronymic -->
+            <div>
+                <label for="patronymic">Patronymic</label><br>
+                <input type="text" required id="patronymic" placeholder="Patronymic">
+            </div>
+
+            <!-- Medical specialty -->
+            <div>
+                <label for="medical-specialty">Medical Specialty</label><br>
+                <select required id="medical-specialty">
+                    <option selected disabled>Select...</option>
+                    <option>Allergist</option>
+                    <option>Cardiologist</option>
+                    <option>Oncologist</option>
+                    <option>Traumatologist</option>
+                    <option>Physiotherapist</option>
+                    <option>Radiologist</option>
+                    <option>Toxicologist</option>
+                    <option>Therapist</option>
+                    <option>Pediatrician</option>
+                    <option>Infectious Disease Specialist</option>
+                    <option>Surgeon</option>
+                    <option>Neurologist</option>
+                    <option>Psychiatrist</option>
+                    <option>Ophthalmologist</option>
+                    <option>ENT Specialist</option>
+                    <option>Dentist</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="small">
+                <label for="date">Date of Birth</label><br>
+                <input type="date" required id="date" name="date"/>
+            </div>
+
+            <!-- Photo -->
+            <div class="small-file">
+                <label for="photo">Photo</label><br>
+                <input type="file" required value="Choose file..." multiple id="photo"/>
+            </div>
+
+            <!-- Percentage for consultation payment -->
+            <div class="small">
+                <label for="percent">Percentage for consultation payment</label><br>
+                <input type="number" min="1" max="100" step="0.5" value="7" id="percent"/><br><br>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+</main>
+
+
+<!-- Developer information -->
+<footer>
+    <small>Dubina Alisa, 2022, <a href="mailto:dubinaalisa1@gmail.com">dubinaalisa1@gmail.com</a></small>
+</footer>
+</body>
+</html>

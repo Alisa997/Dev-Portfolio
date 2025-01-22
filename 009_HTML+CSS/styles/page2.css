@@ -1,0 +1,69 @@
+/* Styles for page2.html */
+/* Style for the table */
+table {
+    width: 100%;
+    margin: 0;
+}
+td {
+    width: 50%;
+    padding: 0 0 1rem 0;
+}
+td:nth-child(1) {
+    padding-right: 1%;
+}
+td:nth-child(2) {
+    padding-left: 1%;
+}
+
+/* Style for the form */
+form {
+    width: 70%;
+    margin: 2rem auto;
+}
+div {
+    margin-bottom: 1rem;
+}
+
+/* Style for labels */
+label {
+    font-size: 1.2rem;
+    padding-left: 8px;
+    color: darkslateblue;
+}
+h2 {
+    font-size: 2rem;
+    margin: 1rem auto 0 auto;
+    text-align: center;
+    color: darkslateblue;
+}
+
+/* Style for input fields, buttons */
+input, select, button, textarea {
+    border-radius: 13px;
+    border: none;
+    padding: 10px;
+    box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1),
+                -2px -2px 5px 0 rgba(0, 0, 0, .1),
+                2px 2px 5px 0 rgba(0, 0, 0, .1),
+                -2px 2px 5px 0 rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+}
+
+/* Style for buttons */
+button {
+    background: darkslateblue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    margin: 0;
+    float: right;
+    position: absolute;
+    bottom: 45px;
+    right: 15%;
+}
+
+/* Sizes for input fields */
+input[type="text"], input[type="tel"], select, textarea {
+    width: 100%;
+}

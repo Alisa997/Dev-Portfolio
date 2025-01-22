@@ -1,0 +1,80 @@
+/* Styles for page4.html */
+/* Style for the sample image */
+.sample {
+    bottom: 8%;
+}
+.sample > img:hover {
+    width: 180%;
+}
+
+/* Style for the orange div */
+.div-orange {
+    background: orange;
+    position: relative;
+    float: left;
+    width: 80%;
+    height: 10%;
+}
+
+/* Style for the yellow div */
+.div-yellow {
+    background: yellow;
+    position: relative;
+    top: 10%;
+    right: 0;
+    height: 80%;
+    width: 80%;
+}
+
+/* Style for the blue div */
+.div-blue {
+    background: cornflowerblue;
+    position: relative;
+    float: left;
+    right: 0;
+    top: 0;
+    height: 90%;
+    width: 20%;
+}
+
+/* Style for the green div */
+.div-green {
+    background: green;
+    position: relative;
+    float: right;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+}
+
+/* Style for the inner pink div */
+.div-inner-pink {
+    background: deeppink;
+    position: absolute;
+    width: 20%;
+    height: 15%;
+    right: 8%;
+    bottom: 8%;
+    transition: all 6s;
+}
+
+/* Skew on X by 45 degrees and Y by 60 degrees */
+.div-inner-pink:hover {
+    transform: skew(45deg, 60deg);
+}
+
+/* Style for the inner orange div */
+.div-inner-orange {
+    background: orange;
+    position: absolute;
+    width: 20%;
+    height: 15%;
+    right: 20%;
+    bottom: 18%;
+    transition: all 4s;
+}
+
+/* Rotate by 270 degrees */
+.div-inner-orange:hover {
+    transform: rotate(270deg);
+}

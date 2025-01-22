@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Second Page</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page2.css">
+    <link rel="shortcut icon" href="../img/home.png" type="image/x-icon"/>
+</head>
+<body>
+<!-- Header -->
+<header id="C0">
+    <h1>Second Page</h1>
+</header>
+
+<!-- Page content -->
+<main>
+    <!-- Navigation panel with links to other pages -->
+    <nav>
+        <a href="../index.html">Home Page</a>
+        <a href="page1.html">First Page</a>
+        <a class="current" href="page2.html">Second Page</a>
+        <a href="page3.html">Third Page</a>
+        <a href="page4.html">Fourth Page</a>
+    </nav>
+    <section>
+        <form method="post" action="#">
+            <h2>Medical Appointment Data Entry Form</h2>
+            <!-- Surname -->
+            <div>
+                <label for="surname">Surname</label><br>
+                <input type="text" required id="surname" placeholder="Surname">
+            </div>
+
+            <!-- First Name -->
+            <div>
+                <label for="name">First Name</label><br>
+                <input type="text" required id="name" placeholder="First Name">
+            </div>
+
+            <!-- Patronymic -->
+            <div>
+                <label for="patronymic">Patronymic</label><br>
+                <input type="text" required id="patronymic" placeholder="Patronymic">
+            </div>
+
+            <table>
+                <tr>
+                    <!-- Phone number -->
+                    <td>
+                        <label for="phone">Phone number</label><br>
+                        <input type="tel" required placeholder="(XXX)-XXX-XXXX" id="phone">
+                    </td>
+                    <!-- Address -->
+                    <td>
+                        <label for="address">Address</label><br>
+                        <input type="text" required id="address" placeholder="Address">
+                    </td>
+                </tr>
+                <tr>
+                    <!-- Doctor performing the appointment -->
+                    <td>
+                        <label for="doctor">Doctor performing the appointment</label><br>
+                        <select required id="doctor">
+                            <option selected disabled>Select...</option>
+                            <option>Petrenko A.V</option>
+                            <option>Kravchenko N.Yu.</option>
+                            <option>Ivanov S.P.</option>
+                            <option>Sapronov S.A.</option>
+                            <option>Frolov V.Yu.</option>
+                            <option>Fedorova A.P.</option>
+                        </select>
+                    </td>
+                    <!-- Cabinet number -->
+                    <td>
+                        <label for="cabinet">Cabinet number</label><br>
+                        <select required id="cabinet">
+                            <option selected disabled>Select...</option>
+                            <option>501</option>
+                            <option>502</option>
+                            <option>503</option>
+                            <option>504</option>
+                            <option>505</option>
+                            <option>506</option>
+                            <option>507</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Symptoms -->
+            <div>
+                <label for="symptoms">Symptoms</label><br>
+                <textarea required id="symptoms" placeholder="Symptoms"></textarea>
+            </div>
+
+            <!-- Urgent appointment -->
+            <div>
+                <label>
+                    <input type="checkbox"/>
+                    Urgent appointment
+                </label>
+            </div>
+
+            <!-- Paid appointment -->
+            <div>
+                <label>
+                    <input type="checkbox"/>
+                    Paid appointment
+                </label>
+            </div>
+
+            <!-- Date and time -->
+            <div>
+                <label for="date-time">Date and time of appointment</label><br>
+                <input required id="date-time" type="datetime-local">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+</main>
+
+<!-- Developer information -->
+<footer>
+    <small>Dubina Alisa, 2022, <a href="mailto:dubinaalisa1@gmail.com">dubinaalisa1@gmail.com</a></small>
+</footer>
+</body>
+</html>

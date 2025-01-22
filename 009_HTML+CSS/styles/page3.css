@@ -1,0 +1,46 @@
+/* Styles for page3.html */
+/* Heading */
+h2 {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+/* Style for tables */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    border: 1px solid black;
+    margin: auto;
+    empty-cells: show;
+}
+td, th {
+    border: 1px solid black;
+    font-family: Tahoma, serif;
+    font-size: 12pt;
+    padding: 5px;
+    vertical-align: top;
+}
+
+/* Style for paragraphs and list elements */
+p, li {
+    margin: 0;
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Style for ordered list */
+ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.text {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
