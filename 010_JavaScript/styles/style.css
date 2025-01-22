@@ -1,0 +1,279 @@
+/* Стили для index.html*/
+html, body {
+    font-family: Calibri, sans-serif;
+    font-size: 10pt;
+    padding: 0;
+    margin: 0;
+}
+
+/* стиль верхнего блока */
+header {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    display: block;
+    background: linear-gradient(90deg, darkslateblue, steelblue, darkslateblue);
+    color: White;
+    text-align: center;
+    height: 5%;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+header h1{
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 8px;
+}
+
+/* стиль центрального блока */
+main{
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flexbox;
+    min-height: 90vh;
+    margin-right: 5%;
+}
+/* стиль навигационной панели */
+nav {
+    font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
+    width: 15%;
+    border-left: 10px solid darkslateblue;
+    border-top-left-radius: 50px;
+    padding: 5px;
+    z-index: 2;
+}
+nav a:link, nav a:visited {
+    font-size: 1.2rem;
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    background-color: white;
+    padding: 13px 0 13px 10%;
+    margin: 23px 35px 23px 10px;
+    border-radius: 10px;
+    box-shadow: 4px -4px 5px 0 navy,
+                -4px -4px 5px 0 navy,
+                4px 4px 5px 0 rgba(149,35,149,10),
+                -4px 4px 5px 0 rgba(149,35,149,10);
+    transition: all 500ms;
+}
+nav a:hover, nav a.current {
+    margin-right: 10px;
+    box-shadow: 4px -4px 10px 0 rgba(149,35,149,10),
+                -4px -4px 10px 0 rgba(149,35,149,10),
+                4px 4px 10px 0 navy,
+                -4px 4px 10px 0 navy;
+}
+nav a:active{
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+                -2px -2px 5px 0 rgba(0,0,0,.1),
+                2px 2px 5px 0 rgba(0,0,0,.1),
+                -2px 2px 5px 0 rgba(0,0,0,.1);
+}
+
+/* стиль текущей вкладки */
+nav a.current {
+    box-shadow: 2px -2px 10px 0 steelblue,
+                -2px -2px 10px 0 steelblue,
+                2px 2px 10px 0 darkslateblue,
+                -2px 2px 10px 0 rgba(149,35,149,10);
+}
+section {
+    width: 80%;
+    max-width: 80%;
+    padding-bottom: 25px;
+}
+.for-blocks{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+span{
+    background: RGB(46, 116, 181);;
+    color: white;
+    border-radius: 12px;
+}
+
+/* стиль нижнего блока */
+footer {
+    clear: both;
+    color: white;
+    background: linear-gradient(90deg, darkslateblue, steelblue, darkslateblue);
+    text-align: center;
+    padding: 6px;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}
+footer a{
+    color: white;
+}
+
+/* стили для элементов списка, абзацев*/
+ul {
+    margin: 0.8rem 2rem;
+}
+ul li, p {
+    text-align: justify;
+    font-size: 1.4rem;
+}
+p {
+    margin: 0 6rem 0.8rem 2rem;
+}
+/* заголовок */
+h2, h3, summary {
+    font-size: 1.6rem;
+    font-family: "Calibri Light", serif;
+    color: RGB(46, 116, 181);
+    margin: 1.2rem 6rem 0 2rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+/* стиль для образца */
+.sample{
+    width: 15%;
+    position: fixed;
+    border-left: 10px solid darkslateblue;
+    border-radius: 50px;
+    padding: 20px;
+    bottom: 20%;
+    z-index: 3;
+    transition: all 500ms;
+}
+.sample > img{
+    width: 90%;
+    border: 1px solid black;
+    z-index: 100;
+    transition: all 500ms;
+}
+.sample > img:hover {
+    width: 250%;
+    left: 10%;
+    box-shadow: 2px -2px 5px 0 black,
+                -2px -2px 5px 0 black,
+                2px 2px 5px 0 black,
+                -2px 2px 5px 0 black;
+}
+.sample:hover{
+    background: linear-gradient(90deg, white 20%, rgba(0,0,0,0)50%);
+}
+
+/* стиль для перехода на начало страницы */
+.up{
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+                -2px -2px 5px 0 rgba(0,0,0,.1),
+                2px 2px 5px 0 rgba(0,0,0,.1),
+                -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 1.2rem;
+    float: right;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 6rem 1.3rem 2rem;
+    position: sticky;
+    bottom: 0;
+    text-decoration: none;
+}
+
+fieldset{
+    border: 1px solid gray;
+}
+
+/* стиль для таблиц */
+table{
+    font-family: Calibri, sans-serif;
+    font-size: 1.1rem;
+    border-spacing: 0;
+    empty-cells: show;
+    width: 80%;
+    margin: 1rem auto;
+    table-layout: auto;
+}
+
+/* стиль для заголовков столбцов */
+th{
+    background: rgb(128, 100, 162);
+    color: white;
+    font-weight: bold;
+}
+
+/* стиль для заголовков столбцов */
+th{
+    vertical-align: top;
+    padding: 5px;
+    border: 1px solid white;
+}
+
+.link {
+    color: rgba(52,101,164,0.95);
+}
+
+.for-buttons{
+    display: flex;
+    vertical-align: middle;
+}
+
+/* стиль для ячеек */
+td{
+    border: 1px solid white;
+    padding: 5px 10px;
+    background: rgb(229, 223, 236);
+    vertical-align: center;
+    text-align: center;
+}
+
+li>ul{
+    list-style: disc;
+}
+/* стиль для ячеек четных строк,
+   расположенных после первой ячейки */
+tr:nth-child(even)>td{
+    background: rgb(204, 192, 217);
+}
+
+.text {
+    margin: 1rem auto;
+    width: 80%;
+}
+
+.object-block{
+    margin: 0;
+    padding: 10px 5px;
+    border-radius: 20px;
+    transition: all 200ms;
+    align-content: center;
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+}
+.object-block > *{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.object-block:hover{
+    box-shadow: 5px -5px 5px 0 rgba(0,0,0,.1),
+    -5px -5px 5px 0 rgba(0,0,0,.1),
+    5px 5px 5px 0 rgba(0,0,0,.1),
+    -5px 5px 5px 0 rgba(0,0,0,.1);
+}
+
+/* стиль для кнопок */
+input[type="button"] {
+    border-radius: 13px;
+    border: none;
+    padding: 10px;
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+                -2px -2px 5px 0 rgba(0,0,0,.1),
+                2px 2px 5px 0 rgba(0,0,0,.1),
+                -2px 2px 5px 0 rgba(0,0,0,.1);
+    box-sizing: border-box;
+    background: darkslateblue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 10px 10px 0;
+}

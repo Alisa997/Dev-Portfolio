@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="img/home.png" type="image/x-icon"/>
+</head>
+<body>
+<!-- Header -->
+<header id="C0">
+    <h1>Home Page</h1>
+</header>
+<!-- Page content -->
+<main>
+    <!-- Navigation panel with links to other pages -->
+    <nav>
+        <a class="current" href="index.html">Home Page</a>
+        <a href="htdocs/page1.html">Task 1</a>
+        <a href="htdocs/page2.html">Task 2</a>
+    </nav>
+
+    <!-- Task description -->
+    <section>
+        <!-- Theoretical part -->
+        <h3>Theoretical Part</h3>
+        <ul>
+            <li>Inheritance in ES6+ syntax, keywords <b>extends</b>, <b>super</b></li>
+            <li>Creating getters and setters, keywords <b>get</b>, <b>set</b></li>
+            <li>Additional JavaScript embedding capabilities in the page</li>
+            <li>Recommendations for using the Module pattern for simulating namespaces in JavaScript</li>
+            <li>Non-intrusive JavaScript</li>
+            <li>Concept of browser objects in client-side JavaScript</li>
+            <li>Basic methods for accessing HTML elements via the <b>document</b> object, and changing element styles</li>
+            <li>Concept of <b>DOM</b> – Document Object Model, some properties of <b>document</b></li>
+        </ul>
+
+        <!-- Practical part -->
+        <h3>Practical Part</h3>
+        <p>
+            Develop JavaScript functions to solve the following tasks. The scripts should be placed on the page using
+            non-intrusive JavaScript style (a module created in the <b>window.onload</b> event handler), with processing
+            triggered by button clicks (input elements of type <b>button</b>, without using forms).
+        </p>
+        <p>
+            Display the results of the script in the markup, use styling, flex, and navigation between pages.
+            Each task should be placed on its own page, and the home page should contain the task description.
+        </p>
+        <p>
+            When first loading the page, use document.write(), and for outputs triggered by event handlers, select
+            a specific markup element without using document.write().
+        </p>
+        <p>
+            <b>Task 1.</b> Develop a class hierarchy in ES6+ syntax to represent 3D shapes - sphere, cone, cylinder, cube.
+            Develop methods to calculate the surface area, volume, display data about the shape, and compare volumes of 3D shapes.
+            Create getters and setters with validation of the assigned values. Replace invalid data with default values,
+            no error messages are needed, exceptions should not be used yet.
+        </p>
+        <p>
+            Also display images of the 3D shapes.
+        </p>
+        <p>
+            Create an array of objects of these classes – 2 objects of each type. By commands assigned to buttons,
+            sort a copy of the array by decreasing volume, increasing surface area, and display the original array of 3D shapes.
+        </p>
+        <p>
+            <b>Task 2.</b> Design a class in ES6+ syntax to represent weather data: temperature, pressure, humidity, wind speed and direction, graphical representation of atmospheric phenomena (clear, cloudy, rain, etc. – no more than 5).
+            Define a method to form a string for displaying data in the markup. Override the <b>toString()</b> method for simple console output.
+            Create an array of weather data for the week, display it on the page. By button commands, display weather data ordered
+            (only during output, the order of elements in the original array should not change): by decreasing temperature,
+            increasing pressure, by decreasing wind speed. Highlight the windiest and calmest days. There should also be a button to display the original array without highlighting the elements.
+        </p>
+
+        <a href="#C0" class="up">Back to top &uarr;</a>
+    </section>
+</main>
+
+<!-- Developer information -->
+<footer>
+    <small>Dubina Alisa, 2022, <a href="mailto:dubinaalisa1@gmail.com">dubinaalisa1@gmail.com</a></small>
+</footer>
+</body>
+</html>
